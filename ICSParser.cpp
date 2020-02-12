@@ -35,7 +35,7 @@ int ICSParser::_CheckDateRekursiv(int StartIndex){
     _file.seek(StartIndex,SeekSet); //set position to StartIndex bytes from the beginning
     if(_file.find("DTSTART;VALUE=DATE:" + year + month + day, _file.size())){ //search for event on the given day
         if(_file.findUntil(SearchFor,"END:VEVENT")) return true; //if searced string is in event return true
-        else _CheckDateRekursiv(_file.position()); //start rekursion, look for next event -> check for string ...
+        else return _CheckDateRekursiv(_file.position()) ; //start rekursion, look for next event -> check for string ...
     }
     return false;
 }
