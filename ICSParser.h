@@ -11,19 +11,19 @@
 
 #include "stdin.h"
 #include "Arduino.h"
+#include "FS.h" //filesystem for ESP8266: http://arduino.esp8266.com/Arduino/versions/2.0.0/doc/filesystem.html under LGPL V2.1
 
 class ICSParser
 {
     public:
         ICSParser(string DatabaseURL);
-        uint_8 CheckDate(string SearchFor, int day, int month, int year);
+        bool CheckDate(string SearchFor, int day, int month, int year);
 
     private:
         string _DatabaseURL;
-        int _CheckDateRekursiv(int StartIndex);
+        bool _CheckDateRekursiv(int StartIndex);
         File _file;
 };
-
 
 
 #endif //ICSParser

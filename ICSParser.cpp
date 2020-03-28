@@ -8,7 +8,6 @@
 */
 
 #include "Arduino.h"
-#include "FS.h" //filesystem for ESP8266: http://arduino.esp8266.com/Arduino/versions/2.0.0/doc/filesystem.html under LGPL V2.1
 #include "ICSParser.h"
 
 ICSParser::ICSParser(string DatabaseURL){
@@ -21,7 +20,7 @@ ICSParser::ICSParser(string DatabaseURL){
 }
 
 
-uint_8 ICSParser::CheckDate(string SearchFor, int day, int month, int year){
+bool ICSParser::CheckDate(string SearchFor, int day, int month, int year){
     //get index of "DTSTART;VALUE=DATE:year+month+day" (can be more than one)
         //check if SearchFor can be found before "END:VEVENT" 
         //    if yes -> return true
@@ -31,7 +30,7 @@ uint_8 ICSParser::CheckDate(string SearchFor, int day, int month, int year){
     return _CheckDateRekursiv(0);
 }
 
-int ICSParser::_CheckDateRekursiv(int StartIndex){
+bool ICSParser::_CheckDateRekursiv(int StartIndex){
     _file.seek(StartIndex,SeekSet); //set position to StartIndex bytes from the beginning
     if(_file.find("DTSTART;VALUE=DATE:" + year + month + day, _file.size())){ //search for event on the given day
         if(_file.findUntil(SearchFor,"END:VEVENT")) return true; //if searced string is in event return true
