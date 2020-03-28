@@ -11,11 +11,11 @@ include header file:
 
 ``` #include <ICSParser.h> ```
 ### Setup
-In the setup erea of your code call ICSParser like this:
+In the header erea of your code create ICSParser instance like this:
 
-``` ICSParser(DatabaseURL); ``` 
+``` ICSParser  ICSParsery("YourFileName.ics"); ``` 
 
-where Database URL is the name of your file.
+where YourFileName is the name of your file.
 
 ### check Date for event:
 call CheckDate when ever you like.
@@ -25,6 +25,6 @@ It needs the following entries:
 
 For example if you'r interested if you need to bring the trash out on the 12.3.2020 you would call:
 
-``` CheckDate("grau", 13, 3, 2020); ``` 
+``` CheckDate("Grau", 13, 3, 2020); ``` 
 
-This will return ```true``` if "grau" was found on the given day and ```false``` if not.
+This will return ```true``` if "Grau" was found on the given day and ```false``` if not.
