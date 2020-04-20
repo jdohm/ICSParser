@@ -5,7 +5,7 @@ a Arduino ESP8266 Wemos D1 mini library to search for specific events in a ICS C
 ### upload ICS calender
 upload using newest [esp8266fs-plugin](https://github.com/esp8266/arduino-esp8266fs-plugin/releases).
 ### copy this library
-copy this library into your Arduino library folder. For example on linus this means: home/Arduino/libraries
+copy this library into your Arduino library folder. For example on linux this means: home/Arduino/libraries
 ### header
 include header file:
 
