@@ -16,6 +16,7 @@ class ICSParser
 {
   public:
     ICSParser(char *DatabaseURL);
+    // the file name has to be given as "/filename" with leading "/" due to compatibility to FS filesystem
     bool CheckDate(char *SearchFor, int day, int month, int year);
 
   private:
@@ -24,6 +25,11 @@ class ICSParser
     File _file;
     char *_SearchFor;
     char _StartSearchC[28];
+    char _StartSearch1C[28];
+    char _StartSearch2C[28];
+    char _StartSearch3C[28];
+    char _EndSearchC[28];
+    int _savedPosition;
 };
 
 
