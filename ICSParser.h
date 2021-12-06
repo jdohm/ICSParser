@@ -5,12 +5,14 @@
   So that an output can signal to put out the trash.
   Created by Jannis Dohm, 2020-02-12.
   Released under MIT License.
+  211206 Kr move from FS, deprecated, to LittleFS
 */
 #ifndef ICSParser_
 #define ICSParser_
 
 #include "Arduino.h"
-#include "FS.h" //filesystem for ESP8266: http://arduino.esp8266.com/Arduino/versions/2.0.0/doc/filesystem.html under LGPL V2.1
+//#include "FS.h" //filesystem for ESP8266: http://arduino.esp8266.com/Arduino/versions/2.0.0/doc/filesystem.html under LGPL V2.1
+#include "LittleFS.h"
 
 class ICSParser
 {

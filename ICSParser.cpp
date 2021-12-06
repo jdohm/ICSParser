@@ -6,15 +6,16 @@
   Created by Jannis Dohm, 2020-02-12.
   Released under MIT License.
   210912 Kr modified algo to be compatible to , hopefully all, types of ics calendar from different regions.
+  211206 Kr move from FS, deprecated, to LittleFS
 */
 
 #include "Arduino.h"
 #include "ICSParser.h"
 
 ICSParser::ICSParser(char *DatabaseURL){
-    SPIFFS.begin();
+    LittleFS.begin(); // 211206 Kr
 //    _file = SPIFFS.open(strcat("/",DatabaseURL), "r");
-    _file = SPIFFS.open(DatabaseURL,"r");  // 210820 Kr
+    _file = LittleFS.open(DatabaseURL,"r");  // 211206 Kr, 210820 Kr
     if (!_file) {
     Serial.println("file open failed");
     }
